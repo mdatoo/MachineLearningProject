@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Machine Learning Project</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body class="container">
+        <canvas id="canvas" onclick="IO.controlVehicle(event)" width="1200" height="700"></canvas>
+        <div class="buttonContainer">
+            <button class="button rightButton" onclick="IO.dialog('reset')">Reset</button>
+            <button class="button" onclick="IO.dialog('load')">Load</button>
+            <button class="button" onclick="IO.dialog('options')">Options</button>
+            <button class="button" onclick="IO.dialog('save')">Save</button>
+        </div>
+        <div class="overlay" id="save">
+            Please enter a name
+            <div class="inputForm">
+                <input class="input" id="saveNameInput" type="text" name="fname" placeholder="File name">
+                <button class="button inputButton" id="saveNameButton" onclick="IO.saveWeights()">Submit</button>
+            </div>
+        </div>
+        <div class="overlay" id="load">
+        </div>
+        <div class="overlay" id="options">
+            Show Neural Network Visualisation:
+            <input id="NNV" type="checkbox">
+            <br>
+            Show Raycasts:
+            <input id="Raycasts" type="checkbox">
+            <br>
+            Number of Genomes per Generation:
+            <input id="slider0" type="range" oninput="IO.setVal('slider0')" min="5" max="25" step="1" />
+            <p1 id="text0"></p1>
+            <br>
+            Probability of Generation:
+            <input id="slider1" type="range" oninput="IO.setVal('slider1')" min="0" max="0.2" step="0.01" />
+            <p1 id="text1"></p1>
+            <br>
+            Generation timeout (frames):
+            <input id="slider2" type="range" oninput="IO.setVal('slider2')" min="700" max="1500" step="100" />
+            <p1 id="text2"></p1>
+            <br>
+            Minimum generated vehicles:
+            <input id="slider3" type="range" oninput="IO.setVal('slider3')" min="3" max="10" step="1" />
+            <p1 id="text3"></p1>
+            <br>
+            Neural Network Composition:
+            <ul style="list-style-type:none; margin:0px">
+                <li>
+                    Input Layer
+                    <select id="select0">
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </li>
+                <li>
+                    1st Hidden Layer
+                    <select id="select1">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </li>
+                <li>
+                    2nd Hidden Layer
+                    <select id="select2">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </li>
+                <li>
+                    3rd Hidden Layer
+                    <select id="select3">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </li>
+                <li>
+                    Output Layer
+                    <select id="select4">
+                        <option value="2">2</option>
+                    </select>
+                </li>
+            </ul>
+            <button class="button inputButton" onclick="IO.saveOptions()">Submit</button>
+        </div>
+    </body>
+    <script src="init.js"></script>
+    <script src="environment.js"></script>
+    <script src="neuralSystem.js"></script>
+    <script src="inputOutput.js"></script>
+    <script src="main.js"></script>
+</html>
